@@ -1,0 +1,60 @@
+
+  <div class="fluid-container main background-image row">
+    <div class="col-lg-4 col-sm-10">
+      <p class="set">Learn to code by watching others</p>
+
+        <p class="text-white   fontsize">See how experienced developers solve the problem in 
+      real-time. watching scripted tutorials is great, but understanding how 
+      developers think is invaluable.</p>
+    </div>
+  
+    <div class="col-lg-4 col-sm-10"> 
+        <button class="btn topbtn text-white"><span> Try it free 7 days </span> then $20/mo. thereafter </button>
+        <div class="bg-white rounded  p-4 myform">
+          <form  [formGroup]="myReactiveForm" (ngSubmit)="onSubmit()">
+            <div class="form-group">
+              <input type="text" class="form-control" 
+              [class.icon]="myReactiveForm.get('firstName').invalid && myReactiveForm.get('firstName').touched"
+              placeholder="First Name" formControlName="firstName">
+            </div>
+            <small class="text-danger invalid-feedback"
+              *ngIf="myReactiveForm.get('firstName').invalid && myReactiveForm.get('firstName').touched">First Name cannot be
+              empty
+            </small>
+            <div class="form-group">
+              <input type="text" class="form-control"
+              [class.icon]="myReactiveForm.get('lastName').invalid && myReactiveForm.get('lastName').touched"
+              placeholder="Last Name" formControlName="lastName">
+            </div>
+            <small class="text-danger"
+              *ngIf="myReactiveForm.get('lastName').invalid && myReactiveForm.get('lastName').touched">Last Name cannot be
+              empty
+            </small>
+
+            <div class="form-group">
+              <input type="email" class="form-control" 
+              [class.icon]="myReactiveForm.get('email').invalid && myReactiveForm.get('email').touched"
+              placeholder="Email Address" formControlName="email">
+            </div>
+            <small class="text-danger"
+              *ngIf="myReactiveForm.get('email').invalid && myReactiveForm.get('email').touched">Looks like this is not an
+              email
+            </small>
+
+            <div class="form-group">
+              <input type="password" class="form-control" 
+              [class.icon]="myReactiveForm.get('password').invalid && myReactiveForm.get('password').touched"
+              placeholder="Password" formControlName="password">
+              <small class="text-danger"
+                *ngIf="myReactiveForm.get('password').invalid && myReactiveForm.get('password').touched">Password cannot be
+                empty
+              </small>
+            </div>
+
+            <button type="submit" class="btn formbtn mb-2 text-white">CLAIM YOUR FREE TRIAL</button>
+            <p class="font">By clicking the button, you are agreeing to our <b class="text-color">Terms and Services</b></p>
+          </form>
+        </div>
+      </div>
+    </div>
+  
